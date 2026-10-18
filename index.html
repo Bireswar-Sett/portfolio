@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bireswar Sett — Computer Science and Data Science undergraduate working across systems, algorithms, and machine learning.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Bireswar Sett — Systems, Algorithms & ML</title>
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #171917;
+      --muted: #6c726d;
+      --line: #e5e9e5;
+      --green: #286347;
+      --green-dark: #1d4834;
+      --green-pale: #edf3ee;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 64px)); margin-inline: auto; }
+
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 25px 0; border-bottom: 1px solid var(--line);
+      font-size: .82rem; letter-spacing: .02em;
+    }
+    .wordmark { font-weight: 800; letter-spacing: -.06em; font-size: 1.05rem; }
+    .wordmark span { color: var(--green); }
+    .top-links { display: flex; gap: 28px; color: var(--muted); }
+    .top-links a:hover, .text-link:hover { color: var(--green); }
+
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(250px, .55fr);
+      gap: clamp(40px, 8vw, 130px); align-items: end;
+      padding: clamp(76px, 12vw, 150px) 0 90px;
+    }
+    .kicker {
+      display: flex; align-items: center; gap: 10px; margin: 0 0 24px;
+      color: var(--green); text-transform: uppercase; letter-spacing: .13em;
+      font-size: .72rem; font-weight: 750;
+    }
+    .kicker::before { content: ""; width: 26px; height: 2px; background: var(--green); }
+    h1 {
+      margin: 0; max-width: 850px; font-size: clamp(4rem, 9.6vw, 9.4rem);
+      line-height: .87; letter-spacing: -.095em; font-weight: 760;
+    }
+    h1 .surname { color: var(--green); }
+    .hero-summary {
+      max-width: 680px; margin: 34px 0 0; color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.32rem); line-height: 1.65;
+    }
+    .hero-aside {
+      padding: 0 0 5px 24px; border-left: 1px solid var(--line);
+    }
+    .aside-label {
+      margin: 0 0 12px; color: var(--muted); font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .12em; font-weight: 700;
+    }
+    .aside-value { margin: 0 0 25px; font-size: 1rem; line-height: 1.5; font-weight: 620; }
+    .status { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: .83rem; font-weight: 650; }
+    .status::before { content: ""; width: 7px; height: 7px; background: var(--green); border-radius: 50%; }
+
+    .section-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 24px;
+      padding-bottom: 20px; border-bottom: 1px solid var(--ink); margin-bottom: 0;
+    }
+    .section-head h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.065em; line-height: 1.1; }
+    .section-index { color: var(--muted); font-size: .75rem; letter-spacing: .1em; }
+
+    .work { padding: 30px 0 105px; }
+    .project {
+      display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(190px, .43fr);
+      gap: 28px; padding: 32px 0 36px; border-bottom: 1px solid var(--line);
+      transition: padding .22s ease, background .22s ease;
+    }
+    .project:hover { padding-left: 12px; }
+    .project-no { padding-top: 6px; color: var(--green); font-size: .78rem; font-weight: 750; letter-spacing: .08em; }
+    .project h3 { margin: 0 0 12px; font-size: clamp(1.45rem, 2.7vw, 2.25rem); line-height: 1.15; letter-spacing: -.055em; }
+    .project p { max-width: 670px; margin: 0; color: var(--muted); font-size: .96rem; }
+    .project-meta { align-self: center; justify-self: end; width: 100%; max-width: 230px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 17px; }
+    .tag {
+      padding: 5px 9px; background: var(--green-pale); color: var(--green-dark);
+      border-radius: 3px; font-size: .69rem; line-height: 1.35; font-weight: 650;
+    }
+    .project-type { color: var(--muted); font-size: .76rem; letter-spacing: .04em; }
+
+    .lower {
+      display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: clamp(55px, 10vw, 150px); padding: 35px 0 105px;
+    }
+    .subsection + .subsection { margin-top: 52px; }
+    .subsection h2 { margin: 0 0 24px; font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: -.065em; }
+    .education-item { padding: 0 0 22px 18px; border-left: 2px solid var(--green); margin-bottom: 24px; }
+    .education-item h3 { margin: 0; font-size: 1rem; font-weight: 720; }
+    .education-item p { margin: 5px 0 0; color: var(--muted); font-size: .88rem; }
+    .education-item .date { color: var(--green); font-size: .73rem; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; margin-bottom: 8px; }
+
+    .about-copy { margin: 0; color: var(--muted); max-width: 560px; }
+    .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 25px 22px; }
+    .skill-group { border-top: 1px solid var(--line); padding-top: 12px; }
+    .skill-group h3 { margin: 0 0 8px; font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; color: var(--green); }
+    .skill-group p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+
+    .contact {
+      padding: clamp(38px, 7vw, 85px); background: var(--green-dark); color: white;
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 35px;
+    }
+    .contact .kicker { color: #c7ddcd; }
+    .contact .kicker::before { background: #c7ddcd; }
+    .contact h2 { margin: 0; max-width: 760px; font-size: clamp(2.6rem, 6vw, 5.7rem); line-height: .97; letter-spacing: -.08em; }
+    .contact p { color: #d3ded6; max-width: 530px; margin: 22px 0 0; }
+    .contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; font-size: .9rem; white-space: nowrap; }
+    .contact-links a { border-bottom: 1px solid #91b49d; padding-bottom: 3px; }
+    .contact-links a:hover { color: #c7ddcd; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 23px 0 28px; color: var(--muted); font-size: .75rem; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(var(--max), calc(100% - 36px)); }
+      .topbar { align-items: flex-start; gap: 18px; }
+      .top-links { gap: 14px; flex-wrap: wrap; justify-content: flex-end; font-size: .76rem; }
+      .hero { grid-template-columns: 1fr; gap: 42px; padding: 82px 0 75px; }
+      h1 { font-size: clamp(4.1rem, 17vw, 7rem); }
+      .hero-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; padding-left: 17px; }
+      .hero-aside .status { grid-column: 1 / -1; margin-top: 2px; }
+      .aside-value { margin-bottom: 16px; }
+      .project { grid-template-columns: 35px minmax(0, 1fr); gap: 14px; padding: 28px 0; }
+      .project-meta { grid-column: 2; justify-self: start; max-width: none; margin-top: 4px; }
+      .tag-list { margin-bottom: 9px; }
+      .lower { grid-template-columns: 1fr; gap: 62px; padding-bottom: 70px; }
+      .contact { grid-template-columns: 1fr; padding: 35px 25px; }
+      .contact-links { flex-direction: row; flex-wrap: wrap; white-space: normal; gap: 12px 22px; }
+      footer { flex-direction: column; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="wordmark" href="#top" aria-label="Bireswar Sett, home">BS<span>.</span></a>
+    <nav class="top-links" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact ↗</a>
+    </nav>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="kicker">Computer Science · Data Science</p>
+        <h1 id="hero-title">Bireswar<br><span class="surname">Sett.</span></h1>
+        <p class="hero-summary">I build systems that make complicated things understandable: from low-level software and algorithmic experiments to machine learning tools for real-world data.</p>
+      </div>
+      <aside class="hero-aside">
+        <p class="aside-label">Currently exploring</p>
+        <p class="aside-value">Systems engineering<br>Applied ML<br>Algorithms</p>
+        <p class="aside-label">Based in</p>
+        <p class="aside-value">India</p>
+        <span class="status">Open to internships</span>
+      </aside>
+    </section>
+
+    <section id="work" class="work" aria-labelledby="work-title">
+      <div class="section-head">
+        <h2 id="work-title">Selected work</h2>
+        <span class="section-index">01 / PROJECTS</span>
+      </div>
+
+      <article class="project">
+        <div class="project-no">01</div>
+        <div>
+          <h3>Akasha</h3>
+          <p>An agentic vision-language platform for analysing optical, SAR, and multi-temporal satellite imagery. Routes tasks to specialist models and tools, then combines their outputs into evidence-grounded responses. Led a team of six and worked across orchestration, APIs, authentication, storage, and cloud deployment.</p>
+        </div>
+        <div class="project-meta">
+          <div class="tag-list"><span class="tag">AI Agents</span><span class="tag">FastAPI</span><span class="tag">Cloud</span></div>
+          <span class="project-type">Remote sensing · Platform engineering</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-no">02</div>
+        <div>
+          <h3>K-Centre Heuristic</h3>
+          <p>A structural heuristic for the one-dimensional k-centre problem. Benchmarked against exact solutions and Gonzales' algorithm across 500 edge cases, with 212 cases matching the exact optimum in the current evaluation. Investigating the structural conditions behind its behaviour.</p>
+        </div>
+        <div class="project-meta">
+          <div class="tag-list"><span class="tag">Algorithms</span><span class="tag">Analysis</span><span class="tag">Python</span></div>
+          <span class="project-type">Algorithm design · Benchmarking</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-no">03</div>
+        <div>
+          <h3>StarOS</h3>
+          <p>A from-scratch operating-system project with a custom bootloader and modular kernel, progressing from 16-bit real mode into 32-bit protected mode. Designed as a foundation for real-time N-body physics simulation, with memory management, interrupts, and hardware initialisation.</p>
+        </div>
+        <div class="project-meta">
+          <div class="tag-list"><span class="tag">C</span><span class="tag">x86 Assembly</span><span class="tag">OS Dev</span></div>
+          <span class="project-type">Low-level systems · Simulation</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-no">04</div>
+        <div>
+          <h3>Smart MCQ Solver</h3>
+          <p>A ranking system for multiple-choice questions using a custom Transformer encoder with shared embeddings and cosine-similarity scoring. Compared against BERT and RoBERTa baselines, with experiment tracking and tuning against a public Kaggle dataset.</p>
+        </div>
+        <div class="project-meta">
+          <div class="tag-list"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">NLP</span></div>
+          <span class="project-type">Applied ML · Ranking</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="lower">
+      <div id="about">
+        <div class="subsection">
+          <p class="kicker">A little context</p>
+          <h2>Curious by default.<br>Practical by choice.</h2>
+          <p class="about-copy">I'm an undergraduate studying computer science and data science, drawn to the parts of computing where the abstractions meet the machinery. I like understanding how things work, building them myself, and testing ideas against evidence instead of trusting a nice-looking theory.</p>
+        </div>
+        <div class="subsection">
+          <p class="kicker">Education</p>
+          <div class="education-item">
+            <p class="date">Jul 2024 – Sep 2028</p>
+            <h3>Bachelor of Science, Data Science and Applications</h3>
+            <p>Indian Institute of Technology Madras</p>
+          </div>
+          <div class="education-item">
+            <p class="date">Aug 2024 – Aug 2028</p>
+            <h3>Bachelor of Technology, Computer Science and Engineering</h3>
+            <p>Siksha 'O' Anusandhan University</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="skills">
+        <div class="subsection">
+          <p class="kicker">Toolbox</p>
+          <h2>Skills & tools</h2>
+          <div class="skills">
+            <div class="skill-group">
+              <h3>Languages</h3>
+              <p>C, C++, Python, Java, C#, JavaScript, SQL, x86 Assembly, Bash</p>
+            </div>
+            <div class="skill-group">
+              <h3>ML & data</h3>
+              <p>PyTorch, scikit-learn, Hugging Face, NumPy, Pandas, Matplotlib, CUDA</p>
+            </div>
+            <div class="skill-group">
+              <h3>Backend & web</h3>
+              <p>FastAPI, Flask, Django, HTML, CSS, PostgreSQL, SQLite</p>
+            </div>
+            <div class="skill-group">
+              <h3>Tools & systems</h3>
+              <p>Linux, Git, GitHub, Vim, VS Code, Visual Studio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="kicker">Get in touch</p>
+        <h2 id="contact-title">Have a problem worth building for?</h2>
+        <p>I'm interested in thoughtful engineering, research-minded teams, and projects that reward curiosity and rigour.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:bireswarsett123@gmail.com">Personal email ↗</a>
+        <a href="https://github.com/Bireswar-Sett" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="assets/Bireswar_Sett_Resume.pdf" target="_blank" rel="noreferrer">Résumé PDF ↗</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <span style="display:none"><!--email_off-->24f2001551@ds.study.iitm.ac.in<!--/email_off--></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© 2026 Bireswar Sett</span>
+    <span>Built with curiosity and plain HTML/CSS.</span>
+  </footer>
+</body>
+</html>
